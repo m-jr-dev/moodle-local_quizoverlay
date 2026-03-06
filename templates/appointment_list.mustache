@@ -1,0 +1,83 @@
+<div class="local-quizoverlay">
+    <form method="get" action="" class="local-quizoverlay-filters">
+        <div class="form-inline">
+            <div class="form-group mr-2 mb-2">
+                <label for="local-quizoverlay-username" class="mr-1">{{#str}} filter_username, local_quizoverlay {{/str}}</label>
+                <input type="text" id="local-quizoverlay-username" name="username" value="{{filters.username}}" class="form-control" />
+            </div>
+
+            <div class="form-group mr-2 mb-2">
+                <label for="local-quizoverlay-shortname" class="mr-1">{{#str}} filter_shortname, local_quizoverlay {{/str}}</label>
+                <input type="text" id="local-quizoverlay-shortname" name="shortname" value="{{filters.shortname}}" class="form-control" />
+            </div>
+
+            <div class="form-group mr-2 mb-2">
+                <label for="local-quizoverlay-quiz" class="mr-1">{{#str}} filter_quiz, local_quizoverlay {{/str}}</label>
+                <input type="text" id="local-quizoverlay-quiz" name="quiz" value="{{filters.quiz}}" class="form-control" />
+            </div>
+
+            <div class="form-group mr-2 mb-2">
+                <label for="local-quizoverlay-perpage" class="mr-1">{{#str}} filter_perpage, local_quizoverlay {{/str}}</label>
+                <select id="local-quizoverlay-perpage" name="perpage" class="custom-select">
+                    {{#perpageoptions}}
+                        <option value="{{value}}" {{#selected}}selected{{/selected}}>{{label}}</option>
+                    {{/perpageoptions}}
+                </select>
+            </div>
+
+            <div class="form-group mr-2 mb-2">
+                <button type="submit" class="btn btn-primary">{{#str}} search, local_quizoverlay {{/str}}</button>
+            </div>
+
+            <div class="form-group mb-2">
+                <a class="btn btn-secondary" href="{{{reseturl}}}">{{#str}} resetfilters, local_quizoverlay {{/str}}</a>
+            </div>
+        </div>
+    </form>
+
+    <div class="local-quizoverlay-total mt-3 mb-2">
+        <strong>{{#str}} totalresults, local_quizoverlay {{/str}}</strong>: {{total}}
+    </div>
+
+    <table class="generaltable fullwidth">
+        <thead>
+            <tr>
+                {{#showusername}}
+                <th>{{#str}} col_username, local_quizoverlay {{/str}}</th>
+                {{/showusername}}
+                <th>{{#str}} col_course, local_quizoverlay {{/str}}</th>
+                <th>{{#str}} col_quiz, local_quizoverlay {{/str}}</th>
+                <th>{{#str}} col_timeopen, local_quizoverlay {{/str}}</th>
+                <th>{{#str}} col_timeclose, local_quizoverlay {{/str}}</th>
+                <th>{{#str}} col_timelimit, local_quizoverlay {{/str}}</th>
+                <th>{{#str}} col_attempts, local_quizoverlay {{/str}}</th>
+                <th>{{#str}} col_password, local_quizoverlay {{/str}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#rows}}
+            <tr>
+                {{#showusername}}
+                <td>{{username}}</td>
+                {{/showusername}}
+                <td>{{course}}</td>
+                <td>{{quiz}}</td>
+                <td>{{timeopen}}</td>
+                <td>{{timeclose}}</td>
+                <td>{{timelimit}}</td>
+                <td>{{attempts}}</td>
+                <td><code>{{password}}</code></td>
+            </tr>
+            {{/rows}}
+            {{^rows}}
+            <tr>
+                <td colspan="{{colspan}}">{{#str}} none {{/str}}</td>
+            </tr>
+            {{/rows}}
+        </tbody>
+    </table>
+
+    <div class="mt-3">
+        {{{pagingbar}}}
+    </div>
+</div>

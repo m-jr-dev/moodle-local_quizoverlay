@@ -1,0 +1,37 @@
+<div class="local-quizoverlay">
+    <table class="generaltable fullwidth">
+        <thead>
+            <tr>
+                {{#showusername}}
+                <th>{{#str}} col_username, local_quizoverlay {{/str}}</th>
+                {{/showusername}}
+                <th>{{#str}} col_course, local_quizoverlay {{/str}}</th>
+                <th>{{#str}} col_quiz, local_quizoverlay {{/str}}</th>
+                <th>{{#str}} col_timeopen, local_quizoverlay {{/str}}</th>
+                <th>{{#str}} col_timeclose, local_quizoverlay {{/str}}</th>
+                <th>{{#str}} col_attempts, local_quizoverlay {{/str}}</th>
+                <th>{{#str}} col_password, local_quizoverlay {{/str}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#rows}}
+            <tr>
+                {{#showusername}}
+                <td>{{username}}</td>
+                {{/showusername}}
+                <td>{{course}}</td>
+                <td>{{quiz}}</td>
+                <td>{{timeopen}}</td>
+                <td>{{timeclose}}</td>
+                <td>{{attempts}}</td>
+                <td><code>{{password}}</code></td>
+            </tr>
+            {{/rows}}
+            {{^rows}}
+            <tr>
+                <td colspan="7">{{#str}} none {{/str}}</td>
+            </tr>
+            {{/rows}}
+        </tbody>
+    </table>
+</div>
